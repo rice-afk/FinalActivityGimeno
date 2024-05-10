@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/louisgimeno/IdeaProjects/MavenDependencies/src/main/java/FinalActivity/tests/CheckBoxDemoTests.java"><classes><class name="FinalActivity.tests.CheckBoxDemoTests"><methods><include name="singleCheckboxDemo"/><include name="multipleCheckboxDemo"/></methods></class></classes></test></suite>

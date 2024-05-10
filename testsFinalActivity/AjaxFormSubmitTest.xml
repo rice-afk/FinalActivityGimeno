@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/louisgimeno/IdeaProjects/MavenDependencies/src/main/java/FinalActivity/tests/AjaxFormSubmitTests.java"><classes><class name="FinalActivity.tests.AjaxFormSubmitTests"><methods><include name="testAjaxFormSubmit"/></methods></class></classes></test></suite>

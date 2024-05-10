@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd"><suite name="All Test Suite"><test verbose="2" preserve-order="true" name="/Users/louisgimeno/IdeaProjects/MavenDependencies/src/main/java/FinalActivity/tests/RadioButtonsDemoTests.java"><classes><class name="FinalActivity.tests.RadioButtonsDemoTests"><methods><include name="testRadioButtonDemo"/><include name="groupRadioButtonDemo"/></methods></class></classes></test></suite>
