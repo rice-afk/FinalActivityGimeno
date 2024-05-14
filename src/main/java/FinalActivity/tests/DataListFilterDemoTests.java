@@ -12,13 +12,14 @@ import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class DataListFilterDemoTests {
     @Test
-    public void testSearchAndVerifyName() {
+    public void testSearchAndVerifyName() throws IOException {
         DataListFilterDemoMethods page = new DataListFilterDemoMethods();
-        page.testSearchAndVerifyName();
+        page.testSearchAndVerifyNames();
     }
 
     @AfterMethod
@@ -26,5 +27,4 @@ public class DataListFilterDemoTests {
         DataListFilterDemoMethods page = new DataListFilterDemoMethods();
         page.tearDown();
     }
-
 }
