@@ -1,0 +1,18 @@
+[
+  {
+    "testName": "dropdownwithSearchbox",
+    "country": "Australia"
+  },
+  {
+    "testName": "dropdownwithDisabledValues",
+    "country": "Puerto Rico"
+  },
+  {
+    "testName": "selectCategory",
+    "category": "C"
+  },
+  {
+    "testName": "testMultipleJQueryDemo",
+    "multipleValues": true
+  }
+]

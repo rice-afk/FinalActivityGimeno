@@ -12,33 +12,16 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 
+import java.io.IOException;
 import java.time.Duration;
 
 public class JQuerySelectTests {
-
     private WebDriver driver;
 
     @Test
-    public void searchboxDropdown() {
+    public void runTestsFromJson() throws IOException {
         JQuerySelectDemoMethods page = new JQuerySelectDemoMethods();
-        page.dropdownwithSearchbox();
-    }
-    @Test
-    public void dropDownwithDisabledValues() {
-        JQuerySelectDemoMethods page = new JQuerySelectDemoMethods();
-        page.dropdownwithDisabledValues();
-    }
-
-    @Test
-    public void testMultipleJQueryDemo() {
-        JQuerySelectDemoMethods page = new JQuerySelectDemoMethods();
-        page.testMultipleJQueryDemo();
-    }
-
-    @Test
-    public void selectCategory() {
-        JQuerySelectDemoMethods page = new JQuerySelectDemoMethods();
-        page.selectCategory();
+        page.runTestsFromJson();
     }
 
     @AfterMethod

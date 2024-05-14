@@ -1,6 +1,6 @@
 package FinalActivity.tests;
 
-import DemoPage.SimpleFormDemoPage;
+import FinalActivity.demoPage.SimpleFormDemoPage;
 import FinalActivity.Methods.SimpleFormDemoMethods;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.poi.ss.usermodel.Cell;

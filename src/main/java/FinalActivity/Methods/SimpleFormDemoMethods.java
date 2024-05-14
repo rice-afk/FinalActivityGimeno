@@ -1,6 +1,6 @@
 package  FinalActivity.Methods;
 
-import DemoPage.SimpleFormDemoPage;
+import FinalActivity.demoPage.SimpleFormDemoPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;

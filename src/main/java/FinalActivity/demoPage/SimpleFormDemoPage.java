@@ -1,4 +1,4 @@
-package DemoPage;
+package FinalActivity.demoPage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;

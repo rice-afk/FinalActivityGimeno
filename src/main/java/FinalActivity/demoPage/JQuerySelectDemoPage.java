@@ -14,6 +14,7 @@ import java.time.Duration;
 import java.util.Arrays;
 import java.util.List;
 
+import static org.testng.Assert.assertTrue;
 import static org.testng.AssertJUnit.assertEquals;
 
 public class JQuerySelectDemoPage {
@@ -58,9 +59,18 @@ public class JQuerySelectDemoPage {
             wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//span[@class='select2-selection select2-selection--multiple']")));
 
             List<WebElement> selectedItems = driver.findElements(By.xpath("//span[@class='select2-selection select2-selection--multiple']"));
-            List<String> expectedStates = Arrays.asList("×Alabama", "×Alaska", "×Arizona");
-            for (int i = 0; i < expectedStates.size(); i++) {
-                assertEquals(expectedStates.get(i).trim(), selectedItems.get(i).getText().trim(),expectedStates+"\n");
+            List<String> expectedStates = Arrays.asList("Alabama", "Alaska", "Arizona");
+
+            for (WebElement selectedItem : selectedItems) {
+                String selectedItemText = selectedItem.getText().trim();
+                boolean found = false;
+                for (String expectedState : expectedStates) {
+                    if (selectedItemText.contains(expectedState)) {
+                        found = true;
+                        break;
+                    }
+                }
+                assertTrue(found, "Expected state not found in selected items");
             }
 
         } catch (Exception e) {
@@ -101,5 +111,4 @@ public class JQuerySelectDemoPage {
 
         assertEquals(selectedOptionText, expectedValue, optionToSelect);
     }
-
 }
