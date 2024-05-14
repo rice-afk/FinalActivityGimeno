@@ -1,0 +1,7 @@
+[
+    {"expectedMessage": "ABC"},
+    {"expectedMessage": “DEF”},
+    {"expectedMessage": “GH”},
+    {"expectedMessage": “JKL”},
+    {"expectedMessage": “MNO”}
+]

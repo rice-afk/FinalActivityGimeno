@@ -1,0 +1,8 @@
+[
+    {"a": 5, "b": 7, "expectedResult": "12"},
+    {"a": 8, "b": 9, "expectedResult": "17"},
+    {"a": 2, "b": 3, "expectedResult": "5"},
+    {"a": 10, "b": 20, "expectedResult": "30"},
+    {"a": 15, "b": 25, "expectedResult": "40"},
+    {"a": 30, "b": 50, "expectedResult": "80"}
+]

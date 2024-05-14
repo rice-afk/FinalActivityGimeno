@@ -1,4 +1,4 @@
-package FinalActivity.demoPage;
+package DemoPage;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -49,7 +49,10 @@ public class SimpleFormDemoPage {
         value2Input.sendKeys(Integer.toString(value2));
         getTotalButton.click();
     }
-
+    public void clearValues() {
+        value1Input.clear();
+        value2Input.clear();
+    }
     public String getResult() {
         return displayResult.getText();
     }
