@@ -17,12 +17,11 @@ public class DataListFilterDemoMethods {
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/data-list-filter-demo.html";
     public void testSearchAndVerifyNames() throws IOException {
-        JSONArray namesData = loadNamesData("/Users/louisgimeno/Desktop/DataListFilter.json");
+        JSONArray namesData = loadNamesData("/Users/louisgimeno/IdeaProjects/MavenDependencies/DataListFilter.json");
         for (int i = 0; i < namesData.length(); i++) {
             setUp();
             driver.get(url);
 
-            // Pass the current name from the JSON array to the DataListFilterDemoPage constructor
             DataListFilterDemoPage page = new DataListFilterDemoPage(driver, namesData.getString(i));
             boolean isNameDisplayed = page.isNameDisplayed();
             Assert.assertTrue(isNameDisplayed, "Name: " + namesData.getString(i) + " is not displayed on the page.");
