@@ -22,10 +22,20 @@ public class AjaxFormDemoMethods {
 
         page.waitForSuccessMessageVisibiity(driver);
         String initialMessage = page.printInitialMessage(driver);
-        Assert.assertEquals("Ajax Request is Processing!", initialMessage, "Initial message does not match.");
+        try {
+            Assert.assertEquals("Ajax Request is Processing!", initialMessage, "Initial message does not match.");
+        } catch (AssertionError e) {
+            tearDown();
+            throw e; // Re-throw the exception to fail the test
+        }
         page.waitForSuccessMessage(driver);
         String successMessage = page.printFinalMessage();
-        Assert.assertEquals("Form submitted Successfully!", successMessage, "Success message does not match.");
+        try {
+            Assert.assertEquals("Form submitted Successfully!", successMessage, "Success message does not match.");
+        } catch (AssertionError e) {
+            tearDown();
+            throw e; // Re-throw the exception to fail the test
+        }
         tearDown();
     }
 
