@@ -7,80 +7,90 @@ import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 public class InputValidationsDemoPage {
-    @FindBy(css = "input[placeholder='First Name']")
+    @FindBy(
+            css = "input[placeholder='First Name']"
+    )
     private WebElement firstNameInput;
-
-    @FindBy(css = "input[placeholder='Last Name']")
+    @FindBy(
+            css = "input[placeholder='Last Name']"
+    )
     private WebElement lastNameInput;
-
-    @FindBy(css = "input[placeholder='E-Mail Address']")
+    @FindBy(
+            css = "input[placeholder='E-Mail Address']"
+    )
     private WebElement emailInput;
-
-    @FindBy(css = "input[placeholder='(845)555-1212']")
+    @FindBy(
+            css = "input[placeholder='(845)555-1212']"
+    )
     private WebElement phoneInput;
-
-    @FindBy(css = "input[placeholder='Address']")
+    @FindBy(
+            css = "input[placeholder='Address']"
+    )
     private WebElement addressInput;
-
-    @FindBy(css = "input[placeholder='city']")
+    @FindBy(
+            css = "input[placeholder='city']"
+    )
     private WebElement cityInput;
-
-    @FindBy(name = "state")
+    @FindBy(
+            name = "state"
+    )
     private WebElement stateDropdown;
-
-    @FindBy(css = "input[placeholder='Zip Code']")
+    @FindBy(
+            css = "input[placeholder='Zip Code']"
+    )
     private WebElement zipCodeInput;
-
-    @FindBy(css = "textarea[placeholder='Project Description']")
+    @FindBy(
+            css = "textarea[placeholder='Project Description']"
+    )
     private WebElement projectDescriptionInput;
-
-    @FindBy(xpath = "//button[normalize-space()='Send']")
+    @FindBy(
+            xpath = "//button[normalize-space()='Send']"
+    )
     private WebElement sendButton;
 
     public InputValidationsDemoPage(WebDriver driver) {
         PageFactory.initElements(driver, this);
     }
 
-    // Methods to fill out the form
     public void fillFirstName(String firstName) {
-        firstNameInput.sendKeys(firstName);
+        this.firstNameInput.sendKeys(new CharSequence[]{firstName});
     }
 
     public void fillLastName(String lastName) {
-        lastNameInput.sendKeys(lastName);
+        this.lastNameInput.sendKeys(new CharSequence[]{lastName});
     }
 
     public void fillEmail(String email) {
-        emailInput.sendKeys(email);
+        this.emailInput.sendKeys(new CharSequence[]{email});
     }
 
     public void fillPhone(String phone) {
-        phoneInput.sendKeys(phone);
+        this.phoneInput.sendKeys(new CharSequence[]{phone});
     }
 
     public void fillAddress(String address) {
-        addressInput.sendKeys(address);
+        this.addressInput.sendKeys(new CharSequence[]{address});
     }
 
     public void fillCity(String city) {
-        cityInput.sendKeys(city);
+        this.cityInput.sendKeys(new CharSequence[]{city});
     }
 
     public void selectState(String state) {
-        Select select = new Select(stateDropdown);
-        stateDropdown.click();
+        Select select = new Select(this.stateDropdown);
+        this.stateDropdown.click();
         select.selectByVisibleText(state);
     }
 
     public void fillZipCode(String zipCode) {
-        zipCodeInput.sendKeys(zipCode);
+        this.zipCodeInput.sendKeys(new CharSequence[]{zipCode});
     }
 
     public void fillProjectDescription(String description) {
-        projectDescriptionInput.sendKeys(description);
+        this.projectDescriptionInput.sendKeys(new CharSequence[]{description});
     }
 
     public void clickSendButton() {
-        sendButton.click();
+        this.sendButton.click();
     }
 }
