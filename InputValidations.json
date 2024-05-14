@@ -1,0 +1,35 @@
+[
+  {
+    "firstName": "Louis",
+    "lastName": "Gimeno",
+    "email": "louisgimeno72@gmail.com",
+    "phone": "(845)555-1212",
+    "address": "Cavite City",
+    "city": "Cavite",
+    "state": "Alaska",
+    "zipCode": "4100",
+    "projectDescription": "asdaasdfas"
+  },
+  {
+    "firstName": "John",
+    "lastName": "Doe",
+    "email": "johndoe@example.com",
+    "phone": "(123)456-7890",
+    "address": "New York City",
+    "city": "New York",
+    "state": "New York",
+    "zipCode": "10001",
+    "projectDescription": "Project Description for John Doe"
+  },
+  {
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "email": "janedoe@example.com",
+    "phone": "(234)567-8901",
+    "address": "Los Angeles",
+    "city": "Los Angeles",
+    "state": "California",
+    "zipCode": "90001",
+    "projectDescription": "Project Description for Jane Doe"
+  }
+]
