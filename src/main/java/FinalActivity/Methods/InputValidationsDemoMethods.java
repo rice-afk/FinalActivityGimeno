@@ -32,7 +32,7 @@ public class InputValidationsDemoMethods {
     }
 
     public void successInputValidationsDemo() throws IOException {
-        JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/InputValidations.json");
+        JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/InputValidations.json");
         for (int i = 0; i < inputData.length(); i++) {
             this.setUp();
             this.driver.get(this.url);

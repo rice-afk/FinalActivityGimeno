@@ -17,7 +17,7 @@ public class AjaxFormSubmitDemoPage {
     @FindBy(id = "description")
     private WebElement commentInput;
 
-    @FindBy(id = "btn-submit")
+    @FindBy(xpath = "(//input[@id='btn-submit'])[1]")
     private WebElement submitButton;
 
     @FindBy(id = "submit-control")

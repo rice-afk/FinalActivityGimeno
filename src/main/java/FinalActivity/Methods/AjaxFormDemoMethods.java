@@ -31,7 +31,7 @@ public class AjaxFormDemoMethods {
     }
 
     public void testAjaxFormSubmit() throws IOException {
-        JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/AjaxSubmitForm.json");
+        JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/AjaxSubmitForm.json");
         for (int i = 0; i < inputData.length(); i++) {
             setUp();
             driver.get(url);
@@ -52,7 +52,7 @@ public class AjaxFormDemoMethods {
             page.waitForSuccessMessage(driver);
             String successMessage = page.printFinalMessage();
             try {
-                Assert.assertEquals("Form submitted Successfully!", successMessage, "Success message does not match.");
+                Assert.assertEquals("Form submited Successfully!", successMessage, "Success message does not match.");
             } catch (AssertionError e) {
                 tearDown();
                 throw e; // Re-throw the exception to fail the test

@@ -54,7 +54,7 @@ public class SimpleFormDemoMethods {
         tearDown();
     }
     public void testSubmitFormWithJsonData() throws IOException {
-        String jsonFilePath = "/Users/louisgimeno/IdeaProjects/MavenDependencies/testSubmitForm.json";
+        String jsonFilePath = "/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/testSubmitForm.json";
         JSONArray jsonArray = new JSONArray(new String(Files.readAllBytes(Paths.get(jsonFilePath))));
         SimpleFormDemoMethods page = new SimpleFormDemoMethods();
 
@@ -99,7 +99,7 @@ public class SimpleFormDemoMethods {
     }
     public void testCalculateandVerifywithJsonData() throws IOException {
         SimpleFormDemoMethods demoMethods = new SimpleFormDemoMethods();
-        JSONArray testData = new JSONArray(new String(Files.readAllBytes(Paths.get("/Users/louisgimeno/IdeaProjects/MavenDependencies/testCalculateandVerify.json"))));
+        JSONArray testData = new JSONArray(new String(Files.readAllBytes(Paths.get("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/testCalculateandVerify.json"))));
         demoMethods.testCalculateAndVerifyResult(testData);
     }
 }

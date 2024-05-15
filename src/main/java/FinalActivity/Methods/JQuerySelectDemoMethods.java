@@ -30,7 +30,7 @@ public class JQuerySelectDemoMethods {
     }
 
     public void runTestsFromJson() throws IOException {
-        JSONArray inputData = loadJsonData("/Users/louisgimeno/Desktop/JQuerySelect.json");
+        JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/JQuerySelect.json");
         for (int i = 0; i < inputData.length(); i++) {
             setUp();
             driver.get(url);

@@ -32,7 +32,7 @@ public class SimpleFormDemoTests {
 
     @DataProvider(name = "excelData")
     public Object[][] excelData() throws IOException {
-        FileInputStream fis = new FileInputStream(new File("/Users/louisgimeno/IdeaProjects/MavenDependencies/testSubmitFormExcel.xlsx"));
+        FileInputStream fis = new FileInputStream(new File("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/testSubmitFormExcel.xlsx"));
         Workbook workbook = new XSSFWorkbook(fis);
         Sheet sheet = workbook.getSheetAt(0);
         int rowCount = sheet.getLastRowNum();

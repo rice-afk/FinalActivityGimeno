@@ -17,7 +17,7 @@ public class DataListFilterDemoMethods {
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/data-list-filter-demo.html";
     public void testSearchAndVerifyNames() throws IOException {
-        JSONArray namesData = loadNamesData("/Users/louisgimeno/IdeaProjects/MavenDependencies/DataListFilter.json");
+        JSONArray namesData = loadNamesData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/DataListFilter.json");
         for (int i = 0; i < namesData.length(); i++) {
             setUp();
             driver.get(url);
