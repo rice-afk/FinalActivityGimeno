@@ -17,6 +17,8 @@ import java.time.Duration;
 public class JQuerySelectDemoMethods {
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/jquery-dropdown-search-demo.html";
+
+    //Method to load Json Data and put it into an Array
     public JSONArray loadJsonData(String filePath) throws IOException {
         File file = new File(filePath);
         BufferedReader br = new BufferedReader(new FileReader(file));
@@ -29,6 +31,7 @@ public class JQuerySelectDemoMethods {
         return new JSONArray(sb.toString());
     }
 
+    //Method to run Tests from json file
     public void runTestsFromJson() throws IOException {
         JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/JQuerySelect.json");
         for (int i = 0; i < inputData.length(); i++) {
@@ -44,18 +47,22 @@ public class JQuerySelectDemoMethods {
                     page.selectCountryBySearch(data.getString("country"));
                     String selectedCountry = page.getSelectedCountry();
                     Assert.assertEquals(data.getString("country"), selectedCountry);
+                    System.out.println("dropdownwithSearchbox Passed");
                     break;
                 case "dropdownwithDisabledValues":
                     page = new JQuerySelectDemoPage(driver);
                     page.selectDisabledValueFromDropdown(data.getString("country"), driver);
+                    System.out.println("dropdownwithDisabledValues Passed");
                     break;
                 case "selectCategory":
                     page = new JQuerySelectDemoPage(driver);
                     page.selectCategoryOption(data.getString("category"), driver);
+                    System.out.println("selectCategory Passed");
                     break;
                 case "testMultipleJQueryDemo":
                     page = new JQuerySelectDemoPage(driver);
                     page.multiplevalues(driver);
+                    System.out.println("testMultipleJQueryDemo Passed");
                     break;
             }
 
@@ -63,12 +70,14 @@ public class JQuerySelectDemoMethods {
         }
     }
 
+    // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (driver!= null) {
             driver.quit();

@@ -37,5 +37,6 @@ public class ProgressBarDemoPage {
     public void checkFinalProgress() {
         String progressTextValue = progressText.getText();
         Assert.assertEquals("100%", progressTextValue, "Final progress is not 100%");
+        System.out.println("Progress Bar Percentage: " + progressTextValue);
     }
 }

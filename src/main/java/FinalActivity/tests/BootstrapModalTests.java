@@ -18,10 +18,16 @@ import java.time.Duration;
 
 public class BootstrapModalTests {
     private WebDriver driver;
+
     @Test
     public void testBootstrapModalDemo() {
         BootstrapModalMethods page = new BootstrapModalMethods();
         page.testBootstrapModalDemo();
+    }
+    @Test
+    public void testBootstrapModal1Demo() {
+        BootstrapModalMethods page = new BootstrapModalMethods();
+        page.testBootstrapModal1Demo();
     }
     @AfterMethod
     public void tearDown() {

@@ -15,6 +15,7 @@ public class DatePickerDemoMethods {
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/bootstrap-date-picker-demo.html";
 
+    // Method to use Date Picker
     public void datePicker() {
         setUp();
         driver.get(url);
@@ -25,12 +26,15 @@ public class DatePickerDemoMethods {
         LocalDate selectedLocalDate = LocalDate.parse(selectedDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         LocalDate today = LocalDate.now();
         Assert.assertEquals(selectedLocalDate, today, "The selected date is not today");
+        System.out.println("The selected date is Today");
 
         page.clearDatePicker(driver);
         Assert.assertTrue(driver.findElement(By.xpath("//input[@placeholder='dd/mm/yyyy']")).getAttribute("value").isEmpty(), "The date picker is not empty after clearing");
+        System.out.println("The Date Picker is Empty");
         tearDown();
     }
 
+    // Method to test the Date Range Picker
     public void testDateRangePickerDemo() {
         setUp();
         driver.get(url);
@@ -40,16 +44,18 @@ public class DatePickerDemoMethods {
         LocalDate endDate = LocalDate.of(2023, 5, 31);
         page.selectDateRange(startDate, endDate, driver);
         Assert.assertTrue(page.validateDateRange(), "Start date is not less than end date.");
+        System.out.println("Start date is less than end date.");
 
         tearDown();
     }
-
+    // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (driver!= null) {
             driver.quit();

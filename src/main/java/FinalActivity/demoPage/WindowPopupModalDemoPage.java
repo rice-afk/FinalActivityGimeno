@@ -69,7 +69,7 @@ public class WindowPopupModalDemoPage {
     }
 
     // Method to switch to a specific window by its URL
-    public void switchToWindowByUrl(WebDriver driver) {
+    public void switchToWindowByUrl(WebDriver driver) throws InterruptedException {
         followAllLink.click();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         wait.until(ExpectedConditions.numberOfWindowsToBe(4)); //
@@ -77,6 +77,7 @@ public class WindowPopupModalDemoPage {
         for (String handle : driver.getWindowHandles()) {
             driver.switchTo().window(handle);
             String currentUrl = driver.getCurrentUrl();
+            Thread.sleep(3000);
 
             // Check if the current URL matches the expected Facebook, Twitter, or Google Plus URL
             if (currentUrl.contains("facebook.com")) {

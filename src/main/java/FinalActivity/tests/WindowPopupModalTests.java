@@ -33,7 +33,7 @@ public class WindowPopupModalTests {
        page.multiwindowPage();
    }
    @Test
-   public void threeWindowPage() {
+   public void threeWindowPage() throws InterruptedException {
        WindowPopupModalDemoMethods page = new WindowPopupModalDemoMethods();
        page.threeWindowPage();
    }

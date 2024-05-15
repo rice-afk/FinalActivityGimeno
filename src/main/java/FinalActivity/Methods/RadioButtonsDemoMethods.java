@@ -12,6 +12,7 @@ public class RadioButtonsDemoMethods {
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/basic-radiobutton-demo.html";
 
+    //Method to test radio buttons
     public void testRadioButtonDemo() {
         setUp();
         driver.get(url);
@@ -21,8 +22,11 @@ public class RadioButtonsDemoMethods {
         page.clickCheckButton();
         String actualMessage = page.getRadioButtonMessageText();
         Assert.assertEquals("Radio button 'Male' is checked", actualMessage);
+        System.out.println("testRadioButtonDemo Passed");
         tearDown();
     }
+
+    //Method to test group radio buttons
     public void groupRadioButtonDemo(){
         setUp();
         driver.get(url);
@@ -34,14 +38,17 @@ public class RadioButtonsDemoMethods {
         String actualMessage = page.getRadioButtonMessageText1();
         Assert.assertEquals("Sex : Male\n" +
                 "Age group: 15 - 50", actualMessage);
+        System.out.println("groupRadioButtonDemo Passed");
         tearDown();
     }
 
+    // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (driver!= null) {
             driver.quit();

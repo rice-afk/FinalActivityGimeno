@@ -23,6 +23,7 @@ public class DualListBoxDemoPage {
     @FindBy(xpath = "//button[@class='btn btn-default btn-sm move-right'][1]")
     private WebElement moveRightButton;
 
+
     @FindBy(xpath = "(//li[@class='list-group-item active'])[1]")
     private List<WebElement> rightListItems;
 
@@ -81,6 +82,12 @@ public class DualListBoxDemoPage {
 
     @FindBy(xpath = "(//button[@class='btn btn-default btn-sm move-left'])[1]")
     private WebElement moveLeftButton;
+
+    public void clickMoveLeftButton(WebDriver driver) {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement moveRightButton = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[@class='btn btn-default btn-sm move-right'][1]")));
+        moveLeftButton.click();
+    }
 
     public boolean verifyItemsMoved(List<WebElement> rightListActiveItems) {
         if (rightListActiveItems.size() == 5) {

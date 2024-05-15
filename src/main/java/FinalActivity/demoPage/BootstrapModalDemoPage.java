@@ -37,7 +37,7 @@ public class BootstrapModalDemoPage {
         closeBtn.click();
     }
 
-    private static void launchAndVerifyModal(WebDriver driver) {
+    public static void launchAndVerifyModal(WebDriver driver) {
         // Click the button to launch the modal
         WebElement launchModalButton = driver.findElement(By.xpath("//a[@class='btn btn-primary'][normalize-space()='Launch modal']"));
         launchModalButton.click();

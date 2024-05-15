@@ -31,6 +31,7 @@ public class InputValidationsDemoMethods {
         return new JSONArray(sb.toString());
     }
 
+    // Method for successful input validations
     public void successInputValidationsDemo() throws IOException {
         JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/InputValidations.json");
         for (int i = 0; i < inputData.length(); i++) {
@@ -54,10 +55,12 @@ public class InputValidationsDemoMethods {
                 e.printStackTrace();
             }
             tearDown();
+            System.out.println("Test Passed! " +"First Name: " +data.getString("firstName"));
         }
         tearDown();
     }
 
+    // Method for unsuccessful input validations
     public void unsuccessfulInputValidationsDemo() {
         this.setUp();
         this.driver.get(this.url);
@@ -69,15 +72,18 @@ public class InputValidationsDemoMethods {
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        System.out.println("Test Passed");
         this.tearDown();
     }
 
+    // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         this.driver = new ChromeDriver();
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10L));
     }
 
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (this.driver != null) {
             this.driver.quit();
@@ -85,6 +91,7 @@ public class InputValidationsDemoMethods {
 
     }
 
+    // Method to check the Validation Message of each field
     private static void checkValidationMessages(WebDriver driver) {
         String firstNameValidationMessage = driver.findElement(By.xpath("//small[normalize-space()='Please supply your first name']")).getText();
         Assert.assertEquals("Please supply your first name", firstNameValidationMessage);

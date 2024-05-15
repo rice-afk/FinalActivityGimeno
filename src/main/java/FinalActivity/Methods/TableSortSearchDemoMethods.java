@@ -11,6 +11,7 @@ public class TableSortSearchDemoMethods {
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/table-sort-search-demo.html";
 
+    // Method to test sorting, searching, and pagination in a table
     public void testTableSortSearchDemo() {
         setUp();
         driver.get(url);
@@ -26,12 +27,14 @@ public class TableSortSearchDemoMethods {
         tearDown();
     }
 
+    // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
 
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (driver!= null) {
             driver.quit();

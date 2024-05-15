@@ -15,6 +15,7 @@ public class WindowPopupModalDemoMethods {
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/window-popup-modal-demo.html";
 
+    // Method to test clicking the Twitter link and asserting the URL of the opened popup
     public void twitterButton() {
         setUp();
         driver.get(url);
@@ -43,8 +44,10 @@ public class WindowPopupModalDemoMethods {
         driver.switchTo().window(windowHandles.iterator().next());
 
         tearDown();
+        System.out.println("twitterButton Test Passed");
     }
 
+    // Method to test clicking the Facebook link and asserting the URL of the opened popup
     public void facebookButton() {
         setUp();
         driver.get(url);
@@ -65,7 +68,7 @@ public class WindowPopupModalDemoMethods {
             }
         }
         // Perform the assertion on the current window's URL
-        String expectedTwitterUrl = "https://web.facebook.com/seleniumeasy?_rdc=1&_rdr";
+        String expectedTwitterUrl = "https://www.facebook.com/seleniumeasy";
         Assert.assertEquals(driver.getCurrentUrl(), expectedTwitterUrl, "Facebook URL assertion failed");
 
         // Close the new window and switch back to the original window
@@ -73,8 +76,10 @@ public class WindowPopupModalDemoMethods {
         driver.switchTo().window(windowHandles.iterator().next());
 
         tearDown();
+        System.out.println("facebookButton Test Passed");
     }
 
+    // Method to test following a link and switching windows
     public void multiwindowPage() {
         setUp();
         driver.get(url);
@@ -83,9 +88,11 @@ public class WindowPopupModalDemoMethods {
         page.followLinkAndSwitchWindows(driver);
 
         tearDown();
+        System.out.println("multiwindowPage Test Passed");
     }
 
-    public void threeWindowPage() {
+    // Method to test opening multiple windows and switching between them
+    public void threeWindowPage() throws InterruptedException {
         setUp();
         driver.get(url);
 
@@ -94,13 +101,16 @@ public class WindowPopupModalDemoMethods {
         page.switchToWindowByUrl(driver);
 
         tearDown();
+        System.out.println("threeWindowPage Test Passed");
     }
 
+    // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (driver!= null) {
             driver.quit();

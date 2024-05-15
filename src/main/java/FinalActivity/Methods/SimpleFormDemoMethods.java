@@ -27,18 +27,21 @@ public class SimpleFormDemoMethods {
     String url = "https://demo.seleniumeasy.com/basic-first-form-demo.html";
     private WebDriverWait wait;
 
+    // Setup method to initialize WebDriver and WebDriverWait
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     }
 
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (driver!= null) {
             driver.quit();
         }
     }
 
+    // Method to submit a form with a predefined message
     public void testSubmitForm(String expectedMessage) {
         setUp();
         driver.get(url);
@@ -53,6 +56,7 @@ public class SimpleFormDemoMethods {
         }
         tearDown();
     }
+    // Method to submit forms based on JSON data
     public void testSubmitFormWithJsonData() throws IOException {
         String jsonFilePath = "/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/testSubmitForm.json";
         JSONArray jsonArray = new JSONArray(new String(Files.readAllBytes(Paths.get(jsonFilePath))));
@@ -70,6 +74,7 @@ public class SimpleFormDemoMethods {
         }
         tearDown();
     }
+    // Method to calculate and verify results based on JSON data
     public void testCalculateAndVerifyResult(JSONArray testData) throws IOException {
         // Move setUp() here to ensure it only runs once before processing all test cases
         setUp();
@@ -97,6 +102,7 @@ public class SimpleFormDemoMethods {
         // Move tearDown() here to ensure it only runs once after processing all test cases
         tearDown();
     }
+    // Test method to calculate and verify results with JSON data
     public void testCalculateandVerifywithJsonData() throws IOException {
         SimpleFormDemoMethods demoMethods = new SimpleFormDemoMethods();
         JSONArray testData = new JSONArray(new String(Files.readAllBytes(Paths.get("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/testCalculateandVerify.json"))));

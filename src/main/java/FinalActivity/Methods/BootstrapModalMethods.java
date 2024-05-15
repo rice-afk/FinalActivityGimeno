@@ -13,37 +13,75 @@ public class BootstrapModalMethods
     private WebDriver driver;
     String url = "https://demo.seleniumeasy.com/bootstrap-modal-demo.html";
 
+    // Main method to test launching and closing modals using different buttons
     public void testBootstrapModalDemo() {
         setUp();
         driver.get(url);
 
         BootstrapModalDemoPage page = new BootstrapModalDemoPage(driver);
         page.launchAndVerifyModal1(driver);
+        System.out.println("Passed: Launched and verified Modal 1"); // Print "Passed" after successfully launching and verifying Modal 1
         page.closeModal(driver, By.xpath("(//a[@class='btn btn-primary'][normalize-space()='Save changes'])[2]"));
+        System.out.println("Passed: Closed Modal 1 with Save Changes button"); // Print "Passed" after successfully closing Modal 1 with the Save Changes button
         page.launchAndVerifyModal1(driver);
+        System.out.println("Passed: Launched and verified Modal 1 again"); // Print "Passed" after successfully launching and verifying Modal 1 again
         page.closeModal(driver, By.xpath("(//a[@class='btn'][normalize-space()='Close'])[2]"));
+        System.out.println("Passed: Closed Modal 1 with Close button"); // Print "Passed" after successfully closing Modal 1 with the Close button
         page.launchAndVerifyModal1(driver);
+        System.out.println("Passed: Launched and verified Modal 1 yet again"); // Print "Passed" after successfully launching and verifying Modal 1 yet again
         page.closeModal(driver, By.xpath("(//button[@type='button'][normalize-space()='×'])[2]"));
+        System.out.println("Passed: Closed Modal 1 with X button"); // Print "Passed" after successfully closing Modal 1 with the X button
 
         page.launchAndVerifyModal2(driver);
+        System.out.println("Passed: Launched and verified Modal 2"); // Print "Passed" after successfully launching and verifying Modal 2
         page.closeModal(driver, By.xpath("(//button[@type='button'][normalize-space()='×'])[3]"));
+        System.out.println("Passed: Closed Modal 2 with X button"); // Print "Passed" after successfully closing Modal 2 with the X button
         page.launchAndVerifyModal1(driver);
+        System.out.println("Passed: Launched and verified Modal 1 once more"); // Print "Passed" after successfully launching and verifying Modal 1 one more time
         page.launchAndVerifyModal2(driver);
+        System.out.println("Passed: Launched and verified Modal 2 once more"); // Print "Passed" after successfully launching and verifying Modal 2 one more time
         page.closeModal(driver, By.xpath("(//a[@class='btn'][normalize-space()='Close'])[3]"));
+        System.out.println("Passed: Closed Modal 2 with Close button"); // Print "Passed" after successfully closing Modal 2 with the Close button
         page.launchAndVerifyModal2(driver);
+        System.out.println("Passed: Launched and verified Modal 2 twice more"); // Print "Passed" after successfully launching and verifying Modal 2 twice more
         page.closeModal(driver, By.xpath("(//a[@class='btn btn-primary'][normalize-space()='Save changes'])[3]"));
+        System.out.println("Passed: Closed Modal 2 with Save Changes button"); // Print "Passed" after successfully closing Modal 2 with the Save Changes button
+        tearDown();
+    }
+
+    public void testBootstrapModal1Demo() {
+        setUp();
+        driver.get(url);
+
+        BootstrapModalDemoPage page = new BootstrapModalDemoPage(driver);
+        page.launchAndVerifyModal(driver);
+        System.out.println("Passed: Launched and verified Modal");
+        page.closeModal(driver, By.xpath("(//a[@class='btn btn-primary'][normalize-space()='Save changes'])[1]"));
+        System.out.println("Passed: Closed Modal with Save Changes button");
+        page.launchAndVerifyModal(driver);
+        System.out.println("Passed: Launched and verified Modal");
+        page.closeModal(driver, By.xpath("(//a[@class='btn'][normalize-space()='Close'])[1]"));
+        System.out.println("Passed: Closed Modal with Close button");
+        page.launchAndVerifyModal(driver);
+        System.out.println("Passed: Launched and verified Modal");
+        page.closeModal(driver, By.xpath("(//button[@type='button'][normalize-space()='×'])[1]"));
+        System.out.println("Passed: Closed Modal with X button");
 
         tearDown();
     }
 
+    // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
     }
+
+    // Teardown method to quit the WebDriver session
     public void tearDown() {
         if (driver!= null) {
             driver.quit();
         }
     }
+
 }
