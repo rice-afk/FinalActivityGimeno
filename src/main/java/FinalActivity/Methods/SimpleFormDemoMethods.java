@@ -99,7 +99,6 @@ public class SimpleFormDemoMethods {
             page.clearValues();
         }
 
-        // Move tearDown() here to ensure it only runs once after processing all test cases
         tearDown();
     }
     // Test method to calculate and verify results with JSON data

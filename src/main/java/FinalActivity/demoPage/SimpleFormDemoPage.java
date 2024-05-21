@@ -49,10 +49,12 @@ public class SimpleFormDemoPage {
         value2Input.sendKeys(Integer.toString(value2));
         getTotalButton.click();
     }
+    // Method to clear values
     public void clearValues() {
         value1Input.clear();
         value2Input.clear();
     }
+    // Method to get results
     public String getResult() {
         return displayResult.getText();
     }

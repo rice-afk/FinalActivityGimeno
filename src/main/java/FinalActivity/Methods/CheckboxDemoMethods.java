@@ -65,6 +65,7 @@ public class CheckboxDemoMethods {
 
         tearDown();
     }
+
     // Setup method to initialize WebDriver and set implicit wait time
     public void setUp() {
         WebDriverManager.chromedriver().setup();
