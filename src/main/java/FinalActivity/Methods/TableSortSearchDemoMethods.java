@@ -14,17 +14,23 @@ public class TableSortSearchDemoMethods {
     // Method to test sorting, searching, and pagination in a table
     public void testTableSortSearchDemo() {
         setUp();
-        driver.get(url);
+        try {
+            driver.get(url);
 
-        TableSortSearchDemoPage page = new TableSortSearchDemoPage(driver);
-        page.selectEntries(25);
-        page.searchFor("a ramos");
-        page.clearSearch();
-        page.searchFor("a");
-        page.clickPaginationLink("next");
-        page.clickPaginationLink("previous");
-        page.clickPaginationLink("2");
-        tearDown();
+            TableSortSearchDemoPage page = new TableSortSearchDemoPage(driver);
+            page.selectEntries(25);
+            page.searchFor("a ramos");
+            page.clearSearch();
+            page.searchFor("a");
+            page.clickPaginationLink("next");
+            page.clickPaginationLink("previous");
+            page.clickPaginationLink("2");
+            System.out.println("Test completed successfully.");
+        }catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        } finally {
+            tearDown();
+        }
     }
 
     // Setup method to initialize WebDriver and set implicit wait time

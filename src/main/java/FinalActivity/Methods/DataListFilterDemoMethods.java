@@ -3,6 +3,7 @@ package FinalActivity.Methods;
 import FinalActivity.demoPage.DataListFilterDemoPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
@@ -19,23 +20,31 @@ public class DataListFilterDemoMethods {
 
     //Method for testing search and verifying names
     public void testSearchAndVerifyNames() throws IOException {
-        JSONArray namesData = loadNamesData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/DataListFilter.json");
-        for (int i = 0; i < namesData.length(); i++) {
-            setUp();
-            driver.get(url);
+        try {
+            JSONArray namesData = loadNamesData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/DataListFilter.json");
+            for (int i = 0; i < namesData.length(); i++) {
+                setUp();
+                driver.get(url);
 
-            DataListFilterDemoPage page = new DataListFilterDemoPage(driver, namesData.getString(i));
-            boolean isNameDisplayed = page.isNameDisplayed();
-            Assert.assertTrue(isNameDisplayed, "Name: " + namesData.getString(i) + " is not displayed on the page.");
+                DataListFilterDemoPage page = new DataListFilterDemoPage(driver, namesData.getString(i));
+                boolean isNameDisplayed = page.isNameDisplayed();
+                Assert.assertTrue(isNameDisplayed, "Name: " + namesData.getString(i) + " is not displayed on the page.");
 
-            System.out.println("Testing name: " + namesData.getString(i)); // Print the name being tested
-            if (isNameDisplayed) {
-                System.out.println("Success: Name '" + namesData.getString(i) + "' is displayed."); // Print success message
-            } else {
-                System.out.println("Failure: Name '" + namesData.getString(i) + "' is not displayed."); // Print failure message
+                System.out.println("Testing name: " + namesData.getString(i)); // Print the name being tested
+                if (isNameDisplayed) {
+                    System.out.println("Success: Name '" + namesData.getString(i) + "' is displayed."); // Print success message
+                } else {
+                    System.out.println("Failure: Name '" + namesData.getString(i) + "' is not displayed."); // Print failure message
+                }
+
+                tearDown();
             }
-
-            tearDown();
+        } catch (IOException | JSONException e) {
+            System.err.println("Error occurred: " + e.getMessage());
+        } finally {
+            if (driver!= null) {
+                tearDown();
+            }
         }
     }
 

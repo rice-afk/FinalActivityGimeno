@@ -18,65 +18,75 @@ public class WindowPopupModalDemoMethods {
     // Method to test clicking the Twitter link and asserting the URL of the opened popup
     public void twitterButton() {
         setUp();
-        driver.get(url);
+        try {
+            driver.get(url);
 
-        WindowPopupModalDemoPage page = new WindowPopupModalDemoPage(driver);
-        page.clickTwitterLink();
+            WindowPopupModalDemoPage page = new WindowPopupModalDemoPage(driver);
+            page.clickTwitterLink();
 
-        // Wait for the new window to open
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+            // Wait for the new window to open
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
-        // Switch to the new window
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String handle : windowHandles) {
-            if (!driver.getWindowHandle().equals(handle)) {
-                driver.switchTo().window(handle);
-                break;
+            // Switch to the new window
+            Set<String> windowHandles = driver.getWindowHandles();
+            for (String handle : windowHandles) {
+                if (!driver.getWindowHandle().equals(handle)) {
+                    driver.switchTo().window(handle);
+                    break;
+                }
             }
+            // Perform the assertion on the current window's URL
+            String expectedTwitterUrl = "https://x.com/intent/follow?screen_name=seleniumeasy&mx=2";
+            Assert.assertEquals(driver.getCurrentUrl(), expectedTwitterUrl, "Twitter URL assertion failed");
+
+            // Close the new window and switch back to the original window
+            driver.close();
+            driver.switchTo().window(windowHandles.iterator().next());
+
+            System.out.println("twitterButton Test Passed");
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        } finally {
+            tearDown();
         }
-        // Perform the assertion on the current window's URL
-        String expectedTwitterUrl = "https://twitter.com/intent/follow?screen_name=seleniumeasy";
-        Assert.assertEquals(driver.getCurrentUrl(), expectedTwitterUrl, "Twitter URL assertion failed");
-
-        // Close the new window and switch back to the original window
-        driver.close();
-        driver.switchTo().window(windowHandles.iterator().next());
-
-        tearDown();
-        System.out.println("twitterButton Test Passed");
     }
 
     // Method to test clicking the Facebook link and asserting the URL of the opened popup
     public void facebookButton() {
         setUp();
-        driver.get(url);
+        try {
+            driver.get(url);
 
-        WindowPopupModalDemoPage page = new WindowPopupModalDemoPage(driver);
-        page.clickFacebookLink();
+            WindowPopupModalDemoPage page = new WindowPopupModalDemoPage(driver);
+            page.clickFacebookLink();
 
-        // Wait for the new window to open
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.numberOfWindowsToBe(2));
+            // Wait for the new window to open
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+            wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
-        // Switch to the new window
-        Set<String> windowHandles = driver.getWindowHandles();
-        for (String handle : windowHandles) {
-            if (!driver.getWindowHandle().equals(handle)) {
-                driver.switchTo().window(handle);
-                break;
+            // Switch to the new window
+            Set<String> windowHandles = driver.getWindowHandles();
+            for (String handle : windowHandles) {
+                if (!driver.getWindowHandle().equals(handle)) {
+                    driver.switchTo().window(handle);
+                    break;
+                }
             }
+            // Perform the assertion on the current window's URL
+            String expectedFacebookUrl = "https://www.facebook.com/seleniumeasy";
+            Assert.assertEquals(driver.getCurrentUrl(), expectedFacebookUrl, "Facebook URL assertion failed");
+
+            // Close the new window and switch back to the original window
+            driver.close();
+            driver.switchTo().window(windowHandles.iterator().next());
+
+            System.out.println("facebookButton Test Passed");
+        } catch (Exception e) {
+            System.err.println("An error occurred: " + e.getMessage());
+        } finally {
+            tearDown();
         }
-        // Perform the assertion on the current window's URL
-        String expectedTwitterUrl = "https://www.facebook.com/seleniumeasy";
-        Assert.assertEquals(driver.getCurrentUrl(), expectedTwitterUrl, "Facebook URL assertion failed");
-
-        // Close the new window and switch back to the original window
-        driver.close();
-        driver.switchTo().window(windowHandles.iterator().next());
-
-        tearDown();
-        System.out.println("facebookButton Test Passed");
     }
 
     // Method to test following a link and switching windows

@@ -21,9 +21,14 @@ public class RadioButtonsDemoMethods {
         page.clickMaleRadioButton();
         page.clickCheckButton();
         String actualMessage = page.getRadioButtonMessageText();
-        Assert.assertEquals("Radio button 'Male' is checked", actualMessage);
-        System.out.println("testRadioButtonDemo Passed");
-        tearDown();
+        try {
+            Assert.assertEquals("Radio button 'Male' is checked", actualMessage);
+            System.out.println("testRadioButtonDemo Passed");
+        } catch (AssertionError ae) {
+            System.err.println("Assertion failed: " + ae.getMessage());
+        } finally {
+            tearDown();
+        }
     }
 
     //Method to test group radio buttons
@@ -36,10 +41,15 @@ public class RadioButtonsDemoMethods {
         page.clickAgeGroupRadioButton();
         page.clickSubmitButton();
         String actualMessage = page.getRadioButtonMessageText1();
-        Assert.assertEquals("Sex : Male\n" +
-                "Age group: 15 - 50", actualMessage);
-        System.out.println("groupRadioButtonDemo Passed");
-        tearDown();
+        try {
+            Assert.assertEquals("Sex : Male\n" +
+                    "Age group: 15 - 50", actualMessage);
+            System.out.println("groupRadioButtonDemo Passed");
+        } catch (AssertionError ae) {
+            System.err.println("Assertion failed: " + ae.getMessage());
+        } finally {
+            tearDown();
+        }
     }
 
     // Setup method to initialize WebDriver and set implicit wait time

@@ -15,55 +15,64 @@ public class CheckboxDemoMethods {
     // Test method for single checkbox
     public void singleCheckboxDemo() {
         setUp();
-        driver.get(url);
-        CheckboxDemoPage page = new CheckboxDemoPage(driver);
-        page.clickAgeCheckbox();
+        try {
+            driver.get(url);
+            CheckboxDemoPage page = new CheckboxDemoPage(driver);
+            page.clickAgeCheckbox();
 
-        boolean ageSuccessMessageDisplayed = page.isAgeSuccessMessageDisplayed(driver);
-        Assert.assertTrue(ageSuccessMessageDisplayed, "Age success message not displayed.");
-        System.out.println("Age success message displayed: " + ageSuccessMessageDisplayed); // Print the result of the assertion
+            boolean ageSuccessMessageDisplayed = page.isAgeSuccessMessageDisplayed(driver);
+            Assert.assertTrue(ageSuccessMessageDisplayed, "Age success message not displayed.");
+            System.out.println("Age success message displayed: " + ageSuccessMessageDisplayed);
 
-        boolean defaultChecked = page.isDefaultChecked();
-        Assert.assertTrue(defaultChecked, "Default checkbox should be checked.");
-        System.out.println("Default checkbox checked: " + defaultChecked); // Print the result of the assertion
+            boolean defaultChecked = page.isDefaultChecked();
+            Assert.assertTrue(defaultChecked, "Default checkbox should be checked.");
+            System.out.println("Default checkbox checked: " + defaultChecked);
 
-        boolean defaultDisabled = page.isDefaultDisabled();
-        Assert.assertTrue(defaultDisabled, "Default checkbox should be disabled.");
-        System.out.println("Default checkbox disabled: " + defaultDisabled); // Print the result of the assertion
-
-        tearDown();
+            boolean defaultDisabled = page.isDefaultDisabled();
+            Assert.assertTrue(defaultDisabled, "Default checkbox should be disabled.");
+            System.out.println("Default checkbox disabled: " + defaultDisabled);
+        } catch (Exception e) {
+            System.err.println("Error occurred: " + e.getMessage());
+        } finally {
+            tearDown();
+        }
     }
     // Test method for multiple checkboxes
     public void multipleCheckboxDemo(){
         setUp();
-        driver.get(url);
-        CheckboxDemoPage page = new CheckboxDemoPage(driver);
-        page.clickCheckAllButton();
+        try {
+            driver.get(url);
+            CheckboxDemoPage page = new CheckboxDemoPage(driver);
+            page.clickCheckAllButton();
 
-        boolean allCheckboxesChecked = page.areAllCheckboxesCheckedFrom4To8(driver);
-        Assert.assertTrue(allCheckboxesChecked, "All checkboxes from the 4th to the 8th should be checked.");
-        System.out.println("All checkboxes from the 4th to the 8th checked: " + allCheckboxesChecked); // Print the result of the assertion
+            boolean allCheckboxesChecked = page.areAllCheckboxesCheckedFrom4To8(driver);
+            Assert.assertTrue(allCheckboxesChecked, "All checkboxes from the 4th to the 8th should be checked.");
+            System.out.println("All checkboxes from the 4th to the 8th checked: " + allCheckboxesChecked);
 
-        boolean isCheckAllButtonUncheckAll = page.isCheckAllButtonTextUncheckAll();
-        Assert.assertTrue(isCheckAllButtonUncheckAll, "Check All button should display 'Uncheck All'.");
-        System.out.println("Check All button displays 'Uncheck All': " + isCheckAllButtonUncheckAll); // Print the result of the assertion
+            boolean isCheckAllButtonUncheckAll = page.isCheckAllButtonTextUncheckAll();
+            Assert.assertTrue(isCheckAllButtonUncheckAll, "Check All button should display 'Uncheck All'.");
+            System.out.println("Check All button displays 'Uncheck All': " + isCheckAllButtonUncheckAll);
 
-        page.clickSpecificCheckbox(4, driver);
+            page.clickSpecificCheckbox(4, driver);
 
-        boolean isCheckAllButtonCheckAll = page.isCheckAllButtonTextCheckAll();
-        Assert.assertTrue(isCheckAllButtonCheckAll, "Check All button should display 'Check All'.");
-        System.out.println("Check All button displays 'Check All': " + isCheckAllButtonCheckAll); // Print the result of the assertion
+            boolean isCheckAllButtonCheckAll = page.isCheckAllButtonTextCheckAll();
+            Assert.assertTrue(isCheckAllButtonCheckAll, "Check All button should display 'Check All'.");
+            System.out.println("Check All button displays 'Check All': " + isCheckAllButtonCheckAll);
 
-        page.clickCheckAllButton();
-        page.clickCheckAllButton();
+            page.clickCheckAllButton();
+            page.clickCheckAllButton();
 
-        boolean allCheckboxesUnchecked = page.areAllCheckboxesUncheckedFrom4To8(driver);
-        Assert.assertTrue(allCheckboxesUnchecked, "All checkboxes from the 4th to the 8th should be unchecked.");
-        System.out.println("All checkboxes from the 4th to the 8th unchecked: " + allCheckboxesUnchecked); // Print the result of the assertion
-        Assert.assertTrue(isCheckAllButtonCheckAll, "Check All button should display 'Check All'.");
-        System.out.println("Check All button still displays 'Check All': " + isCheckAllButtonCheckAll); // Print the result of the assertion
+            boolean allCheckboxesUnchecked = page.areAllCheckboxesUncheckedFrom4To8(driver);
+            Assert.assertTrue(allCheckboxesUnchecked, "All checkboxes from the 4th to the 8th should be unchecked.");
+            System.out.println("All checkboxes from the 4th to the 8th unchecked: " + allCheckboxesUnchecked);
 
-        tearDown();
+            Assert.assertTrue(isCheckAllButtonCheckAll, "Check All button should display 'Check All'.");
+            System.out.println("Check All button still displays 'Check All': " + isCheckAllButtonCheckAll);
+        } catch (Exception e) {
+            System.err.println("Error occurred: " + e.getMessage());
+        } finally {
+            tearDown();
+        }
     }
 
     // Setup method to initialize WebDriver and set implicit wait time

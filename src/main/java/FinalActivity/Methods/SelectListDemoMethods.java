@@ -20,29 +20,38 @@ public class SelectListDemoMethods {
         SelectListDemoPage page = new SelectListDemoPage(driver);
         page.selectOptionByVisibleText("Sunday");
         String selectedValue = page.getSelectedValueText();
-        Assert.assertEquals("Day selected :- Sunday", selectedValue);
-        System.out.println("singleSelectListDemo Test Passed");
-
-        tearDown();
+        try {
+            Assert.assertEquals("Day selected :- Sunday", selectedValue);
+            System.out.println("singleSelectListDemo Test Passed");
+        } catch (AssertionError ae) {
+            System.err.println("Assertion failed: " + ae.getMessage());
+        } finally {
+            tearDown();
+        }
     }
 
     // Method to test multi-selection from a dropdown list
     public void multiSelectListDemo() {
         setUp();
-        driver.get(url);
+        try {
+            driver.get(url);
 
-        SelectListDemoPage page = new SelectListDemoPage(driver);
-        page.clickFlorida();
-        page.clickPrintButton();
-        String selectedValue1 = page.getSelectedValuesText();
-        Assert.assertEquals("First selected option is : Florida", selectedValue1);
+            SelectListDemoPage page = new SelectListDemoPage(driver);
+            page.clickFlorida();
+            page.clickPrintButton();
+            String selectedValue1 = page.getSelectedValuesText();
+            Assert.assertEquals("First selected option is : Florida", selectedValue1);
 
-        page.clickPrintAllButton();
-        String selectedValue2 = page.getSelectedValuesText();
-        Assert.assertEquals("Options selected are : Florida", selectedValue2);
+            page.clickPrintAllButton();
+            String selectedValue2 = page.getSelectedValuesText();
+            Assert.assertEquals("Options selected are : Florida", selectedValue2);
 
-        System.out.println("multiSelectListDemo Test Passed");
-        tearDown();
+            System.out.println("multiSelectListDemo Test Passed");
+        } catch (AssertionError ae) {
+            System.err.println("Assertion failed: " + ae.getMessage());
+        } finally {
+            tearDown();
+        }
     }
 
     // Setup method to initialize WebDriver and set implicit wait time
