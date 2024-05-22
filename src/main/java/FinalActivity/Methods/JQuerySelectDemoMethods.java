@@ -32,7 +32,7 @@ public class JQuerySelectDemoMethods {
     }
 
     //Method to run Tests from json file
-    public void runTestsFromJson() throws IOException {
+    public void runTestsFromJson() throws IOException, InterruptedException {
         JSONArray inputData = loadJsonData("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/JQuerySelect.json");
         for (int i = 0; i < inputData.length(); i++) {
             setUp();
@@ -48,21 +48,25 @@ public class JQuerySelectDemoMethods {
                     String selectedCountry = page.getSelectedCountry();
                     Assert.assertEquals(data.getString("country"), selectedCountry);
                     System.out.println("dropdownwithSearchbox Passed");
+                    Thread.sleep(3000);
                     break;
                 case "dropdownwithDisabledValues":
                     page = new JQuerySelectDemoPage(driver);
                     page.selectDisabledValueFromDropdown(data.getString("country"), driver);
                     System.out.println("dropdownwithDisabledValues Passed");
+                    Thread.sleep(3000);
                     break;
                 case "selectCategory":
                     page = new JQuerySelectDemoPage(driver);
                     page.selectCategoryOption(data.getString("category"), driver);
                     System.out.println("selectCategory Passed");
+                    Thread.sleep(3000);
                     break;
                 case "testMultipleJQueryDemo":
                     page = new JQuerySelectDemoPage(driver);
                     page.multiplevalues(driver);
                     System.out.println("testMultipleJQueryDemo Passed");
+                    Thread.sleep(3000);
                     break;
             }
 
@@ -75,6 +79,7 @@ public class JQuerySelectDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

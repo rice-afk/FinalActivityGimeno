@@ -19,7 +19,7 @@ public class JQuerySelectTests {
     private WebDriver driver;
 
     @Test
-    public void runTestsFromJson() throws IOException {
+    public void runTestsFromJson() throws IOException, InterruptedException {
         JQuerySelectDemoMethods page = new JQuerySelectDemoMethods();
         page.runTestsFromJson();
     }

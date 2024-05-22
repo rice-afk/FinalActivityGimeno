@@ -24,8 +24,11 @@ public class RadioButtonsDemoMethods {
         try {
             Assert.assertEquals("Radio button 'Male' is checked", actualMessage);
             System.out.println("testRadioButtonDemo Passed");
+            Thread.sleep(2000);
         } catch (AssertionError ae) {
             System.err.println("Assertion failed: " + ae.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             tearDown();
         }
@@ -45,8 +48,11 @@ public class RadioButtonsDemoMethods {
             Assert.assertEquals("Sex : Male\n" +
                     "Age group: 15 - 50", actualMessage);
             System.out.println("groupRadioButtonDemo Passed");
+            Thread.sleep(2000);
         } catch (AssertionError ae) {
             System.err.println("Assertion failed: " + ae.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             tearDown();
         }
@@ -57,6 +63,7 @@ public class RadioButtonsDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
     // Teardown method to quit the WebDriver session
     public void tearDown() {

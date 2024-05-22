@@ -32,8 +32,11 @@ public class DatePickerDemoMethods {
             page.clearDatePicker(driver);
             Assert.assertTrue(driver.findElement(By.xpath("//input[@placeholder='dd/mm/yyyy']")).getAttribute("value").isEmpty(), "The date picker is not empty after clearing");
             System.out.println("The Date Picker is Empty");
+            Thread.sleep(2000);
         } catch (AssertionError ae) {
             System.err.println("Assertion failed: " + ae.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             tearDown();
         }
@@ -51,8 +54,11 @@ public class DatePickerDemoMethods {
             page.selectDateRange(startDate, endDate, driver);
             Assert.assertTrue(page.validateDateRange(), "Start date is not less than end date.");
             System.out.println("Start date is less than end date.");
+            Thread.sleep(2000);
         } catch (AssertionError ae) {
             System.err.println("Assertion failed: " + ae.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             tearDown();
         }
@@ -62,6 +68,7 @@ public class DatePickerDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

@@ -45,6 +45,7 @@ public class WindowPopupModalDemoMethods {
             driver.switchTo().window(windowHandles.iterator().next());
 
             System.out.println("twitterButton Test Passed");
+            Thread.sleep(2000);
         } catch (Exception e) {
             System.err.println("An error occurred: " + e.getMessage());
         } finally {
@@ -82,6 +83,7 @@ public class WindowPopupModalDemoMethods {
             driver.switchTo().window(windowHandles.iterator().next());
 
             System.out.println("facebookButton Test Passed");
+            Thread.sleep(2000);
         } catch (Exception e) {
             System.err.println("An error occurred: " + e.getMessage());
         } finally {
@@ -90,7 +92,7 @@ public class WindowPopupModalDemoMethods {
     }
 
     // Method to test following a link and switching windows
-    public void multiwindowPage() {
+    public void multiwindowPage() throws InterruptedException {
         setUp();
         driver.get(url);
 
@@ -99,6 +101,7 @@ public class WindowPopupModalDemoMethods {
 
         tearDown();
         System.out.println("multiwindowPage Test Passed");
+        Thread.sleep(2000);
     }
 
     // Method to test opening multiple windows and switching between them
@@ -112,6 +115,7 @@ public class WindowPopupModalDemoMethods {
 
         tearDown();
         System.out.println("threeWindowPage Test Passed");
+        Thread.sleep(2000);
     }
 
     // Setup method to initialize WebDriver and set implicit wait time
@@ -119,6 +123,7 @@ public class WindowPopupModalDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
     // Teardown method to quit the WebDriver session
     public void tearDown() {

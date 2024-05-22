@@ -34,6 +34,7 @@ public class ProgressBarDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

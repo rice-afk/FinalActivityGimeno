@@ -48,6 +48,11 @@ public class BootstrapModalMethods
             System.out.println("Passed: Launched and verified Modal 2 twice more");
             page.closeModal(driver, By.xpath("(//a[@class='btn btn-primary'][normalize-space()='Save changes'])[3]"));
             System.out.println("Passed: Closed Modal 2 with Save Changes button");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } catch (TimeoutException | NoSuchElementException e) {
             System.err.println("Error: " + e.getMessage());
         } finally {
@@ -72,6 +77,11 @@ public class BootstrapModalMethods
             System.out.println("Passed: Launched and verified Modal");
             page.closeModal(driver, By.xpath("(//button[@type='button'][normalize-space()='×'])[1]"));
             System.out.println("Passed: Closed Modal with X button");
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } catch (TimeoutException | NoSuchElementException e) {
             System.err.println("Error: " + e.getMessage());
         } finally {
@@ -84,6 +94,7 @@ public class BootstrapModalMethods
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

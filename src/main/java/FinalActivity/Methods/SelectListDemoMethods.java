@@ -23,8 +23,11 @@ public class SelectListDemoMethods {
         try {
             Assert.assertEquals("Day selected :- Sunday", selectedValue);
             System.out.println("singleSelectListDemo Test Passed");
+            Thread.sleep(2000);
         } catch (AssertionError ae) {
             System.err.println("Assertion failed: " + ae.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             tearDown();
         }
@@ -47,8 +50,11 @@ public class SelectListDemoMethods {
             Assert.assertEquals("Options selected are : Florida", selectedValue2);
 
             System.out.println("multiSelectListDemo Test Passed");
+            Thread.sleep(2000);
         } catch (AssertionError ae) {
             System.err.println("Assertion failed: " + ae.getMessage());
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         } finally {
             tearDown();
         }
@@ -59,6 +65,7 @@ public class SelectListDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
     // Teardown method to quit the WebDriver session
     public void tearDown() {

@@ -26,7 +26,7 @@ public class BootStrapAlertMessagesTests {
     }
 
     @Test
-    public void normalSuccessMessageButton() {
+    public void normalSuccessMessageButton() throws InterruptedException {
         BootStrapAlertMessagesDemoMethods page = new BootStrapAlertMessagesDemoMethods();
         page.normalSuccessMessageButton();
     }
@@ -38,7 +38,7 @@ public class BootStrapAlertMessagesTests {
     }
 
     @Test
-    public void normalWarningButton() {
+    public void normalWarningButton() throws InterruptedException {
         BootStrapAlertMessagesDemoMethods page = new BootStrapAlertMessagesDemoMethods();
         page.normalWarningButton();
     }
@@ -50,7 +50,7 @@ public class BootStrapAlertMessagesTests {
     }
 
     @Test
-    public void normalDangerButton() {
+    public void normalDangerButton() throws InterruptedException {
         BootStrapAlertMessagesDemoMethods page = new BootStrapAlertMessagesDemoMethods();
         page.normalDangerButton();
     }
@@ -62,7 +62,7 @@ public class BootStrapAlertMessagesTests {
     }
 
     @Test
-    public void normalInfoButton() {
+    public void normalInfoButton() throws InterruptedException {
         BootStrapAlertMessagesDemoMethods page = new BootStrapAlertMessagesDemoMethods();
         page.normalInfoButton();
     }

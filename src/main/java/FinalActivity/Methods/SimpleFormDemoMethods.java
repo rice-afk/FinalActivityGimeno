@@ -32,6 +32,7 @@ public class SimpleFormDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

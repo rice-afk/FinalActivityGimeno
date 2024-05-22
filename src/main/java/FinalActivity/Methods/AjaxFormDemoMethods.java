@@ -65,7 +65,7 @@ public class AjaxFormDemoMethods {
             page.waitForSuccessMessage(driver);
             String successMessage = page.printFinalMessage();
             try {
-                Assert.assertEquals("Form submited Successfully!", successMessage, "Success message does not match.");
+                Assert.assertEquals("Form submitted Successfully!", successMessage, "Success message does not match.");
                 try {
                     Thread.sleep(3000);
                 } catch (InterruptedException e) {
@@ -86,6 +86,7 @@ public class AjaxFormDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

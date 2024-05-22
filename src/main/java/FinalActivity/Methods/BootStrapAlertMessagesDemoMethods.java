@@ -31,13 +31,14 @@ public class BootStrapAlertMessagesDemoMethods {
         tearDown();
     }
     // Test method for normal success button
-    public void normalSuccessMessageButton() {
+    public void normalSuccessMessageButton() throws InterruptedException {
         setUp();
         driver.get(url);
 
         BootstrapAlertMessagesDemoPage page = new BootstrapAlertMessagesDemoPage(driver);
         page.clickNormalSuccessMessageButton();
         Assert.assertEquals("×\nI'm a normal success message. To close use the appropriate button.", page.getNormalSuccessMessageAlertText());
+        Thread.sleep(2000);
         page.clickCloseButton();
         System.out.println("Test Passed");
         try {
@@ -68,13 +69,14 @@ public class BootStrapAlertMessagesDemoMethods {
     }
 
     // Test method for normal warning button
-    public void normalWarningButton() {
+    public void normalWarningButton() throws InterruptedException {
         setUp();
         driver.get(url);
 
         BootstrapAlertMessagesDemoPage page = new BootstrapAlertMessagesDemoPage(driver);
         page.clickNormalWarningButton();
         Assert.assertEquals("×\nI'm a normal warning message. To close use the appropriate button.",  page.getNormalWarningAlertMessage());
+        Thread.sleep(2000);
         page.clickCloseButton1();
         System.out.println("Test Passed");
         try {
@@ -105,13 +107,14 @@ public class BootStrapAlertMessagesDemoMethods {
     }
 
     // Test method for normal danger button
-    public void normalDangerButton() {
+    public void normalDangerButton() throws InterruptedException {
         setUp();
         driver.get(url);
 
         BootstrapAlertMessagesDemoPage page = new BootstrapAlertMessagesDemoPage(driver);
         page.clickNormalDangerMessageButton();
         Assert.assertEquals("×\nI'm a normal danger message. To close use the appropriate button.", page.getNormalDangerMessageAlertText());
+        Thread.sleep(2000);
         page.clickCloseButton3();
         System.out.println("Test Passed");
         try {
@@ -142,13 +145,14 @@ public class BootStrapAlertMessagesDemoMethods {
     }
 
     // Test  method for normal information button
-    public void normalInfoButton() {
+    public void normalInfoButton() throws InterruptedException {
         setUp();
         driver.get(url);
 
         BootstrapAlertMessagesDemoPage page = new BootstrapAlertMessagesDemoPage(driver);
         page.clickNormalInfoMessageButton();
         Assert.assertEquals("×\nI'm a normal info message. To close use the appropriate button.", page.getNormalInfoMessageAlertText());
+        Thread.sleep(2000);
         page.clickCloseButton4();
         System.out.println("Test Passed");
         try {
@@ -165,6 +169,7 @@ public class BootStrapAlertMessagesDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
     // Teardown method to quit the WebDriver session
     public void tearDown() {

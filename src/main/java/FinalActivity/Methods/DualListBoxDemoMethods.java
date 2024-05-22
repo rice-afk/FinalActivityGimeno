@@ -55,7 +55,7 @@ public class DualListBoxDemoMethods {
     }
 
     // Method to move selected items to the right list and verify the count
-    public void MovetoRightandLeft() {
+    public void MovetoRightandLeft() throws InterruptedException {
         setUp();
         driver.get(url);
 
@@ -63,7 +63,9 @@ public class DualListBoxDemoMethods {
         DualListBoxDemoPage page = new DualListBoxDemoPage(driver);
         page.clickSelectAllLink(driver);
         page.clickMoveRightButton(driver);
+        Thread.sleep(3000);
         page.clickMoveLeftButton(driver);
+        Thread.sleep(3000);
         List<WebElement> rightListActiveItems = driver.findElements(By.xpath("//li[@class='list-group-item active']"));
         boolean itemsMoved = page.verifyItemsMoved(rightListActiveItems);
         try {
@@ -80,6 +82,7 @@ public class DualListBoxDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

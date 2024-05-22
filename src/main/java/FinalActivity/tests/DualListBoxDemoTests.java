@@ -32,7 +32,7 @@ public class DualListBoxDemoTests {
     }
 
     @Test
-    public void MovetoRightandLeft() {
+    public void MovetoRightandLeft() throws InterruptedException {
         DualListBoxDemoMethods page = new DualListBoxDemoMethods();
         page.MovetoRightandLeft();
     }

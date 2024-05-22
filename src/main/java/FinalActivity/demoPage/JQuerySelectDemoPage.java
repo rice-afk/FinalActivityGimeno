@@ -66,6 +66,7 @@ public class JQuerySelectDemoPage {
                 boolean found = false;
                 for (String expectedState : expectedStates) {
                     if (selectedItemText.contains(expectedState)) {
+                        Thread.sleep(1000);
                         found = true;
                         break;
                     }

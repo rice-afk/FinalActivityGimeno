@@ -81,6 +81,7 @@ public class InputValidationsDemoMethods {
         WebDriverManager.chromedriver().setup();
         this.driver = new ChromeDriver();
         this.driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10L));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session

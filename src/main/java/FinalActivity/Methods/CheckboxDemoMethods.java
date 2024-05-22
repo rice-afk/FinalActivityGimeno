@@ -31,6 +31,11 @@ public class CheckboxDemoMethods {
             boolean defaultDisabled = page.isDefaultDisabled();
             Assert.assertTrue(defaultDisabled, "Default checkbox should be disabled.");
             System.out.println("Default checkbox disabled: " + defaultDisabled);
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } catch (Exception e) {
             System.err.println("Error occurred: " + e.getMessage());
         } finally {
@@ -68,6 +73,12 @@ public class CheckboxDemoMethods {
 
             Assert.assertTrue(isCheckAllButtonCheckAll, "Check All button should display 'Check All'.");
             System.out.println("Check All button still displays 'Check All': " + isCheckAllButtonCheckAll);
+
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         } catch (Exception e) {
             System.err.println("Error occurred: " + e.getMessage());
         } finally {
@@ -80,6 +91,7 @@ public class CheckboxDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
     // Teardown method to quit the WebDriver session
     public void tearDown() {

@@ -10,7 +10,7 @@ public class DataListFilterDemoPage {
     @FindBy(id = "input-search")
     private WebElement searchInput;
 
-    private WebElement nameElement;
+    public WebElement nameElement;
 
     public DataListFilterDemoPage(WebDriver driver, String name) {
         PageFactory.initElements(driver, this);

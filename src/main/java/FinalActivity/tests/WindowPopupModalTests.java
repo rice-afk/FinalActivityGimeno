@@ -28,7 +28,7 @@ public class WindowPopupModalTests {
         page.facebookButton();
     }
    @Test
-   public void multiwindowPage() {
+   public void multiwindowPage() throws InterruptedException {
        WindowPopupModalDemoMethods page = new WindowPopupModalDemoMethods();
        page.multiwindowPage();
    }

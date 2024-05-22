@@ -26,6 +26,7 @@ public class TableSortSearchDemoMethods {
             page.clickPaginationLink("previous");
             page.clickPaginationLink("2");
             System.out.println("Test completed successfully.");
+            Thread.sleep(2000);
         }catch (Exception e) {
             System.err.println("An error occurred: " + e.getMessage());
         } finally {
@@ -38,6 +39,7 @@ public class TableSortSearchDemoMethods {
         WebDriverManager.chromedriver().setup();
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
     }
 
     // Teardown method to quit the WebDriver session
