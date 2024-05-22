@@ -60,7 +60,11 @@ public class SimpleFormDemoTests {
         SimpleFormDemoMethods page = new SimpleFormDemoMethods();
         page.testCalculateandVerifywithJsonData();
     }
-
+    @Test
+    public void testNegativeScenario() throws IOException {
+        SimpleFormDemoMethods page = new SimpleFormDemoMethods();
+        page.testNegativeScenario();
+    }
 
     public void setUp() {
         WebDriverManager.chromedriver().setup();

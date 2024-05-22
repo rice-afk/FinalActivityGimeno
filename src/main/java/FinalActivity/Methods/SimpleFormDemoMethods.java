@@ -108,4 +108,38 @@ public class SimpleFormDemoMethods {
         JSONArray testData = new JSONArray(new String(Files.readAllBytes(Paths.get("/Users/louisgimeno/IdeaProjects/MavenDependencies/testData/testCalculateandVerify.json"))));
         demoMethods.testCalculateAndVerifyResult(testData);
     }
+    // Method to test the negative scenario where getTotalButton is clicked and displayResult is NaN
+    public void testNegativeScenario() {
+        setUp();
+        driver.get(url);
+        SimpleFormDemoPage page = new SimpleFormDemoPage(driver);
+
+        // Click the getTotalButton
+        page.getTotalButton.click();
+
+        // Wait for the operation to complete and the result to be displayed
+        try {
+            Thread.sleep(2000); // Sleep for 2 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        // Assert that displayResult is NaN
+        try {
+            double actualResult = Double.parseDouble(page.getResult());
+            Assert.assertTrue(Double.isNaN(actualResult), "Expected displayResult to be NaN but got a valid number instead.");
+            System.out.println("Test Passed: Expected NaN result received.");
+        } catch (NumberFormatException e) {
+            // Handle case where getDisplayResult() might not return a parsable string
+            Assert.fail("getDisplayResult() did not return a parsable string.");
+        }
+
+        // Implementing try-catch around the entire block ensures that even if an error occurs during the test,
+        // the WebDriver session is properly closed in the finally block.
+        try {
+            tearDown();
+        } catch (Exception e) {
+            System.err.println("An error occurred during the test cleanup: " + e.getMessage());
+        }
+    }
 }

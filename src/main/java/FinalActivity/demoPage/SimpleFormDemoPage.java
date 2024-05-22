@@ -25,10 +25,10 @@ public class SimpleFormDemoPage {
     private WebElement value2Input;
 
     @FindBy(xpath = "//button[normalize-space()='Get Total']")
-    private WebElement getTotalButton;
+    public WebElement getTotalButton;
 
     @FindBy(xpath = "//span[@id='displayvalue']")
-    private WebElement displayResult;
+    public WebElement displayResult;
 
     public SimpleFormDemoPage(WebDriver driver) {
         PageFactory.initElements(driver, this);

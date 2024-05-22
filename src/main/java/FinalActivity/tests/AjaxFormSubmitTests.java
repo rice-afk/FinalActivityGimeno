@@ -16,6 +16,12 @@ public class AjaxFormSubmitTests {
         page.testAjaxFormSubmit();
     }
 
+    @Test
+    public void noTextboxInput() throws IOException {
+        AjaxFormDemoMethods page = new AjaxFormDemoMethods();
+        page.noTextboxInput();
+    }
+
     @AfterMethod
     public void tearDown() {
         if (driver!= null) {

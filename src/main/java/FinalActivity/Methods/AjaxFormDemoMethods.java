@@ -4,7 +4,9 @@ import FinalActivity.demoPage.AjaxFormSubmitDemoPage;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
 
@@ -79,6 +81,31 @@ public class AjaxFormDemoMethods {
             }
             tearDown();
         }
+    }
+
+    public void noTextboxInput() throws IOException {
+        setUp();
+        driver.get(url);
+        AjaxFormSubmitDemoPage page = new AjaxFormSubmitDemoPage(driver);
+        page.submitForm();
+        try {
+            Thread.sleep(2000); // Sleep for 2 seconds
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        WebElement nameInput = driver.findElement(By.id("title"));
+        String actualStyle = nameInput.getAttribute("style");
+
+        try {
+            Assert.assertEquals("border: 1px solid rgb(255, 0, 0);", actualStyle, "The style of the nameInput textbox does not match the expected value.");
+            System.out.println("Test Passed: The style of the nameInput textbox matches the expected value.");
+        } catch (AssertionError e) {
+            tearDown();
+            System.out.println("Test Failed: The style of the nameInput textbox does not match the expected value - " + e.getMessage());
+            throw e; // Re-throw the exception to fail the test
+        }
+
+        tearDown();
     }
 
     // Setup method to initialize WebDriver and set implicit wait time
